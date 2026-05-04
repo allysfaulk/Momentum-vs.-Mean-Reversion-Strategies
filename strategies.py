@@ -4,6 +4,9 @@ strategies.py
 Establishes trading strategies and completes backtests.
 """
 
+import data
+print(data.__file__)
+
 from data import (
     TICKERS,
     TIME_PERIODS,
