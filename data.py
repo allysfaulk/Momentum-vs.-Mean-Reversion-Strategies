@@ -134,3 +134,26 @@ for ticker in TICKERS:
     print(f"  ✓ Got {len(df)} days of data")
 
 print(f"\n✓ Data ready for all stocks!\n")
+
+def load_all_data():
+    all_data = {}
+
+    full_start = "2011-01-01"
+    full_end = "2024-12-01"
+
+    for ticker in TICKERS:
+        print(f"Downloading {ticker}...")
+        df = None
+
+        if HAS_YFINANCE:
+            df = download_with_yfinance(ticker, full_start, full_end)
+
+        if df is None or df.empty:
+            df = create_sample_data(ticker, full_start, full_end)
+
+        df['returns'] = df['close'].pct_change()
+        all_data[ticker] = df
+        print(f"  ✓ Got {len(df)} days of data")
+
+    print("\n✓ Data ready for all stocks!\n")
+    return all_data
