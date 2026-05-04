@@ -4,6 +4,8 @@ strategies.py
 Establishes trading strategies and completes backtests.
 """
 
+from data import TRANSACTION_COST_BPS
+
 # ==================== STRATEGY FUNCTIONS ====================
 
 def calculate_momentum_signals(df, short_window, long_window):
