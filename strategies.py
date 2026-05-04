@@ -4,7 +4,11 @@ strategies.py
 Establishes trading strategies and completes backtests.
 """
 
-from data import TRANSACTION_COST_BPS
+from data import (
+    TICKERS,
+    TIME_PERIODS,
+    TRANSACTION_COST_BPS
+)
 
 # ==================== STRATEGY FUNCTIONS ====================
 
